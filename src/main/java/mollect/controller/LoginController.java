@@ -53,7 +53,7 @@ public class LoginController extends HttpServlet {
 			HttpSession session = request.getSession();
 			session.setAttribute("memberId", mOne.getMemberId());
 			session.setAttribute("memberName", mOne.getMemberName());
-			request.getRequestDispatcher("/member/mypage.do").forward(request, response);
+			request.getRequestDispatcher("/index.jsp").forward(request, response);
 		} else {
 			request.getRequestDispatcher("/member/login.do").forward(request, response);
 		}

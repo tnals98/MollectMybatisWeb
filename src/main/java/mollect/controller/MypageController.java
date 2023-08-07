@@ -32,7 +32,7 @@ public class MypageController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String memberId = request.getParameter("member-id");
+		String memberId = request.getParameter("memberId");
 		MemberService service = new MemberService();
 		Member member = service.selectOneById(memberId);
 		if(member != null) { 

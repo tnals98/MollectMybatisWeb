@@ -32,7 +32,7 @@
                 <li><a href="/content/popularContent.html">인기순위 </a></li>
                 <li><a href="#">추천</a></li>
                 <li><a href="/content/endingContent.html">종료예정작 </a></li>
-                <li><a href="/member/mypage.do">마이페이지</a></li>
+                <li><a href="/member/mypage.do?memberId="+${sessionScope.memberId } >마이페이지</a></li>
             </ul>
         </div>
 

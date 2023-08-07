@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import notice.model.service.NoticeService;
 import notice.model.vo.Notice;
+import notice.model.vo.PageData;
 
 /**
  * Servlet implementation class ListController
@@ -35,7 +36,9 @@ public class ListController extends HttpServlet {
 				NoticeService service = new NoticeService();
 				String page = request.getParameter("currnetPage") != null ? request.getParameter("currnetPage") : "1";
 				int currnetPage = Integer.parseInt(page);
-				List<Notice> nList = service.selectNoticeList(currnetPage);
+				PageData pd= service.selectNoticeList(currnetPage);
+				List<Notice> nList = pd.getnList();
+				String pageNavi = pd.getPageNavi();
 				if(!nList.isEmpty()) {
 					request.setAttribute("nList", nList);
 					RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/views/notice/list.jsp");

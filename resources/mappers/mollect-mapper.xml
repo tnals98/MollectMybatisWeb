@@ -30,6 +30,6 @@
  	</select>
  	
  	<select id="selectOneById" resultMap="memberResultMap">
-		SELECT * FROM MEMBER_TBL WHERE MEMBER_ID = #{memberId } 		
+		SELECT * FROM MEMBER_TBL WHERE MEMBER_ID = #{memberId,jdbcType=VARCHAR } 		
  	</select>
  </mapper>

@@ -30,7 +30,7 @@
 				<li><a href="/content/popularContent.html">인기순위</a></li>
 				<li><a href="#">추천</a></li>
 				<li><a href="/content/endingContent.html">종료예정작</a></li>
-				<li><a href="/member/mypage.do">마이페이지</a></li>
+				<li><a href="/member/mypage.do?memberId=${sessionScope.memberId }">마이페이지</a></li>
 			</ul>
 		</div>
 
@@ -41,7 +41,7 @@
 					<c:if test="${sessionScope.memberId ne null }">
 					${sessionScope.memberName }님 환영합니다!<br><br><br><br>
 					<a href="/member/logout.do">로그아웃</a>
-					<a href="/member/mypage.do?member-id=${memberId }">마이페이지</a>
+					<a href="/member/mypage.do?memberId=${memberId }">마이페이지</a>
 				</c:if>
 				<c:if test="${memberId eq null}">
 						<form action="/member/login.do" method="post">

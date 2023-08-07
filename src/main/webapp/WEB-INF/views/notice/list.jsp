@@ -29,7 +29,7 @@
 				<li><a href="/content/popularContent.html">인기순위 </a></li>
 				<li><a href="#">추천</a></li>
 				<li><a href="/content/endingContent.html">종료예정작 </a></li>
-				<li><a href="/member/mypage.do">마이페이지</a></li>
+				<li><a href="/member/mypage.do?memberId=${sessionScope.memberId }">마이페이지</a></li>
 			</ul>
 		</div>
 		<div id="main">
@@ -44,6 +44,7 @@
 						<col width="35%">
 						<col width="10%">
 						<col width="25%">
+						<col width="10%">
 					</colgroup>
 					<thead>
 						<tr>
@@ -51,6 +52,7 @@
 							<th>글제목</th>
 							<th>글쓴이</th>
 							<th>작성일</th>
+							<th>조회수</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -61,6 +63,7 @@
 									href="/notice/detail.do?noticeNo=${notice.noticeNo }">${notice.noticeSubject }</a></td>
 								<td>${notice.noticeWriter}</td>
 								<td>${notice.noticeDate }</td>
+								<td>${notice.viewCount }</td>
 							</tr>
 						</c:forEach>
 						<tr>
