@@ -1,10 +1,10 @@
-package mollect.model.service;
+package mollect.member.model.service;
 
 import org.apache.ibatis.session.SqlSession;
 
 import common.SqlSessionTemplate;
-import mollect.model.dao.MemberDAO;
-import mollect.model.vo.Member;
+import mollect.member.model.dao.MemberDAO;
+import mollect.member.model.vo.Member;
 
 public class MemberService {
 

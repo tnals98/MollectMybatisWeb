@@ -1,28 +1,27 @@
-package mollect.controller;
+package mollect.notice.controller;
 
 import java.io.IOException;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import mollect.model.service.MemberService;
-import mollect.model.vo.Member;
+import mollect.notice.model.service.NoticeService;
+import mollect.notice.model.vo.Notice;
 
 /**
- * Servlet implementation class MypageController
+ * Servlet implementation class DetailController
  */
-@WebServlet("/member/mypage.do")
-public class MypageController extends HttpServlet {
+@WebServlet("/notice/detail.do")
+public class DetailController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public MypageController() {
+    public DetailController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -31,18 +30,14 @@ public class MypageController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		String memberId = request.getParameter("memberId");
-		MemberService service = new MemberService();
-		Member member = service.selectOneById(memberId);
-		if(member != null) { 
-			request.setAttribute("member", member);
-			request.getRequestDispatcher("/WEB-INF/views/member/mypage.jsp")
-			.forward(request, response);
-		}else { 
-			request.setAttribute("url", "/index.jsp");
-			RequestDispatcher view = request.getRequestDispatcher("/member/login.do");
-			view.forward(request, response);
+		int noticeNo = Integer.parseInt(request.getParameter("noticeNo"));
+		NoticeService service = new NoticeService();
+		Notice notice = service.selectOneByNo(noticeNo);
+		if(notice != null) {
+			request.setAttribute("notice", notice);
+			request.getRequestDispatcher("/WEB-INF/views/notice/detail.jsp").forward(request, response);
+		}else {
+			request.getRequestDispatcher("/WEB-INF/views/index.jsp").forward(request, response);
 		}
 	}
 

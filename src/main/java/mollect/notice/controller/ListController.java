@@ -1,4 +1,4 @@
-package notice.controller;
+package mollect.notice.controller;
 
 import java.io.IOException;
 import java.util.List;
@@ -10,9 +10,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import notice.model.service.NoticeService;
-import notice.model.vo.Notice;
-import notice.model.vo.PageData;
+import mollect.notice.model.service.NoticeService;
+import mollect.notice.model.vo.Notice;
+import mollect.notice.model.vo.PageData;
 
 /**
  * Servlet implementation class ListController
@@ -41,8 +41,8 @@ public class ListController extends HttpServlet {
 				String pageNavi = pd.getPageNavi();
 				if(!nList.isEmpty()) {
 					request.setAttribute("nList", nList);
+					request.setAttribute("pageNavi",pageNavi);
 					RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/views/notice/list.jsp");
-					
 					view.forward(request, response);
 				}else {
 					request.setAttribute("url", "/index.jsp");

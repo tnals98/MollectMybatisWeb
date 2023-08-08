@@ -1,4 +1,4 @@
-package notice.model.vo;
+package mollect.notice.model.vo;
 
 import java.util.List;
 

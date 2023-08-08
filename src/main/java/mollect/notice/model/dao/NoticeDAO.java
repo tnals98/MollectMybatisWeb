@@ -1,16 +1,26 @@
-package notice.model.dao;
+package mollect.notice.model.dao;
 
 import java.util.List;
 
 import org.apache.ibatis.session.RowBounds;
 import org.apache.ibatis.session.SqlSession;
 
-import notice.model.vo.Notice;
+import mollect.notice.model.vo.Notice;
 
 public class NoticeDAO {
 	
 	public int insertNotice(SqlSession session, Notice notice) {
 		int result = session.insert("NoticeMapper.insertNotice", notice);
+		return result;
+	}
+
+	public int modifyNotice(SqlSession session, Notice notice) {
+		int result = session.update("NoticeMapper.modifyNotice", notice);
+		return result;
+	}
+
+	public int eraseNotice(SqlSession session, int noticeNo) {
+		int result = session.delete("NoticeMapper.eraseNotice", noticeNo);
 		return result;
 	}
 
@@ -27,21 +37,6 @@ public class NoticeDAO {
 		return notice;
 	}
 
-	public int eraseNotice(SqlSession session, int noticeNo) {
-		int result = session.delete("NoticeMapper.eraseNotice", noticeNo);
-		return result;
-	}
-	
-	public int modifyNotice(SqlSession session, Notice notice) {
-		int result = session.update("NoticeMapper.modifyNotice", notice);
-		return result;
-	}
-	
-	private int getTotalCount(SqlSession session) {
-		int totalCount = session.selectOne("NoticeMapper.getTotalCount");
-		return totalCount;
-	}
-	
 	public String generatePageNavi(SqlSession session, int currentPage) {
 		// 전체 게시물의 갯수
 		int totalCount = getTotalCount(session);
@@ -84,5 +79,9 @@ public class NoticeDAO {
 		return result.toString();
 	}
 
+	private int getTotalCount(SqlSession session) {
+		int totalCount = session.selectOne("NoticeMapper.getTotalCount");
+		return totalCount;
+	}
 
 }

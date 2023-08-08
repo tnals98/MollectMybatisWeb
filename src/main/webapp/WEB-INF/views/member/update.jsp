@@ -45,7 +45,7 @@
 					<ul>
 						<li>
 							<label for="member-id">아이디 : </label>
-							<input id="member-id" name="member-id" type="text" value="${member.memberId }" readonly><br>	
+							<input id="member-id" name="member-id" type="text" value="${sessionScope.memberId }" readonly><br>	
 						</li>
 						<li>
 							<label for="member-pw">비밀번호 : </label>
@@ -53,25 +53,25 @@
 						</li>
 						<li>
 							<label for="member-name">이름 : </label>
-							<input id="member-name" name="member-name" type="text" value="${member.memberName }" readonly><br>
+							<input id="member-name" name="member-name" type="text" value="${sessionScope.memberName }" readonly><br>
 						</li>
 						<li>
 							<label for="member-phone">연락처 : </label>
-							<input id="member-phone" name="member-phone" type="text" value="${member.memberAge }"><br>
+							<input id="member-phone" name="member-phone" type="text" value="${sessionScope.memberAge }"><br>
 						</li>
 						<li>
 							<label for="member-email">이메일 : </label>
-							<input id="member-email" name="member-email" type="text" value="${member.memberEmail }"><br>
+							<input id="member-email" name="member-email" type="text" value="${sessionScope.memberEmail }"><br>
 						</li>
 						<li>
 							<label for="member-age">나이 : </label>
-							<input id="member-age" name="member-age" type="text" value="${member.memberAge }" readonly><br>
+							<input id="member-age" name="member-age" type="text" value="${sessionScope.memberAge }" readonly><br>
 						</li>
 						<li>
 							<label for="member-gender">성별</label>
-							<input type="hidden" id="member-gender" name="member-gender" value="${member.memberGender }">
-							<c:if test="${member.memberGender eq 'M'}">남자</c:if>
-							<c:if test="${member.memberGender eq 'F'}">여자</c:if>
+							<input type="radio" id="member-gender" name="member-gender" value="${sessionScope.memberGender }">
+							<c:if test="${sessionScope.memberGender eq 'M'}">남자</c:if>
+							<c:if test="${sessionScope.memberGender eq 'F'}">여자</c:if>
 						</li>
 					</ul>
 					<button type="submit">수정하기</button>

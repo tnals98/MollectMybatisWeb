@@ -1,4 +1,4 @@
-package mollect.model.vo;
+package mollect.member.model.vo;
 
 public class Member {
 	private String memberId;

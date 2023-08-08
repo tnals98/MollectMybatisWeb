@@ -1,4 +1,4 @@
-package mollect.controller;
+package mollect.member.controller;
 
 import java.io.IOException;
 
@@ -8,8 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import mollect.model.service.MemberService;
-import mollect.model.vo.Member;
+import mollect.member.model.service.MemberService;
+import mollect.member.model.vo.Member;
 
 /**
  * Servlet implementation class RegisterController

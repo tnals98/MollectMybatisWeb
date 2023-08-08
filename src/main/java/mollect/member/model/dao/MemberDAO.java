@@ -1,9 +1,9 @@
-package mollect.model.dao;
+package mollect.member.model.dao;
 
 
 import org.apache.ibatis.session.SqlSession;
 
-import mollect.model.vo.Member;
+import mollect.member.model.vo.Member;
 
 public class MemberDAO {
 
